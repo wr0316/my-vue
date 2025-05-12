@@ -4,7 +4,5 @@ module.exports = defineConfig({
 })
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/my-vue/' // 替换为你的仓库名
-    : '/'
-};
+  publicPath: '/'
+}
