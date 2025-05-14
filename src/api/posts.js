@@ -1,3 +1,44 @@
+// src/api/posts.js
+import img1 from "@/assets/1080-600x500.jpg";
+import img2 from "@/assets/1084-600x280.jpg";
+import img3 from "@/assets/115-600x300.jpg";
+import img4 from "@/assets/180-600x360.jpg";
+import img5 from "@/assets/259-600x240.jpg";
+import img6 from "@/assets/26-600x490.jpg";
+import img7 from "@/assets/27-600x250.jpg";
+import img8 from "@/assets/327-600x330.jpg";
+import img9 from "@/assets/353-600x450.jpg";
+import img10 from "@/assets/355-600x200.jpg";
+import img11 from "@/assets/380-600x400.jpg";
+import img12 from "@/assets/399-600x440.jpg";
+import img13 from "@/assets/40-600x470.jpg";
+import img14 from "@/assets/452-600x270.jpg";
+import img15 from "@/assets/537-600x310.jpg";
+import img16 from "@/assets/656-600x480.jpg";
+import img17 from "@/assets/722-600x380.jpg";
+import img18 from "@/assets/815-600x220.jpg";
+import img19 from "@/assets/966-600x350.jpg";
+import img20 from "@/assets/20.jpg";
+import img21 from "@/assets/21.jpg";
+import img22 from "@/assets/22.jpg";
+import img23 from "@/assets/23.jpg";
+import img24 from "@/assets/24.jpg";
+import img25 from "@/assets/25.jpg";
+import img26 from "@/assets/26.jpg";
+import img27 from "@/assets/27.jpg";
+import img28 from "@/assets/28.jpg";
+import img29 from "@/assets/29.jpg";
+import img30 from "@/assets/30.jpg";
+import img31 from "@/assets/31.jpg";
+import img32 from "@/assets/32.jpg";
+import img33 from "@/assets/33.jpg";
+import img34 from "@/assets/34.jpg";
+import img35 from "@/assets/35.jpg";
+import img36 from "@/assets/36.jpg";
+import img37 from "@/assets/37.jpg";
+import img38 from "@/assets/38.jpg";
+import img39 from "@/assets/39.jpg";
+import img40 from "@/assets/40.jpg";
 // 小型视频 URL 列表（真实可用的小型视频）
 export const getRandomVideoUrl = () => {
   const videoUrls = [
@@ -17,49 +58,50 @@ export const getRandomVideoUrl = () => {
 
   return videoUrls[Math.floor(Math.random() * videoUrls.length)];
 };
-// 小型视频 URL 列表（真实可用的小型视频）
+
+// 图片 URL 列表（真实可用的随机图片）
 export const getRandomImgUrl = () => {
   const ImgUrls = [
-    "https://picsum.photos/600/200?random=1",
-    "https://picsum.photos/600/350?random=2",
-    "https://picsum.photos/600/480?random=3",
-    "https://picsum.photos/600/300?random=4",
-    "https://picsum.photos/600/450?random=5",
-    "https://picsum.photos/600/250?random=6",
-    "https://picsum.photos/600/500?random=7",
-    "https://picsum.photos/600/380?random=8",
-    "https://picsum.photos/600/420?random=9",
-    "https://picsum.photos/600/280?random=10",
-    "https://picsum.photos/600/330?random=11",
-    "https://picsum.photos/600/470?random=12",
-    "https://picsum.photos/600/220?random=13",
-    "https://picsum.photos/600/400?random=14",
-    "https://picsum.photos/600/360?random=15",
-    "https://picsum.photos/600/270?random=16",
-    "https://picsum.photos/600/490?random=17",
-    "https://picsum.photos/600/310?random=18",
-    "https://picsum.photos/600/440?random=19",
-    "https://picsum.photos/600/240?random=20",
-    "https://picsum.photos/600/500?random=21",
-    "https://picsum.photos/600/390?random=22",
-    "https://picsum.photos/600/430?random=23",
-    "https://picsum.photos/600/290?random=24",
-    "https://picsum.photos/600/340?random=25",
-    "https://picsum.photos/600/460?random=26",
-    "https://picsum.photos/600/230?random=27",
-    "https://picsum.photos/600/410?random=28",
-    "https://picsum.photos/600/370?random=29",
-    "https://picsum.photos/600/260?random=30",
-    "https://picsum.photos/600/500?random=31",
-    "https://picsum.photos/600/320?random=32",
-    "https://picsum.photos/600/450?random=33",
-    "https://picsum.photos/600/210?random=34",
-    "https://picsum.photos/600/480?random=35",
-    "https://picsum.photos/600/300?random=36",
-    "https://picsum.photos/600/470?random=37",
-    "https://picsum.photos/600/250?random=38",
-    "https://picsum.photos/600/500?random=39",
-    "https://picsum.photos/600/380?random=40",
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
+    img11,
+    img12,
+    img13,
+    img14,
+    img15,
+    img16,
+    img17,
+    img18,
+    img19,
+    img20,
+    img21,
+    img22,
+    img23,
+    img24,
+    img25,
+    img26,
+    img27,
+    img28,
+    img29,
+    img30,
+    img31,
+    img32,
+    img33,
+    img34,
+    img35,
+    img36,
+    img37,
+    img38,
+    img39,
+    img40,
   ];
 
   return ImgUrls[Math.floor(Math.random() * ImgUrls.length)];
@@ -69,33 +111,37 @@ export const getRandomImgUrl = () => {
 export const fetchPosts = (params) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const { type, page, pageSize = 10 } = params;
+      const { type = "mixed", page = 1, pageSize = 10 } = params;
 
-      // 生成模拟数据（图片和视频混合）
+      // 根据 type 参数决定生成数据类型
       const mockList = Array.from({ length: pageSize }, (_, index) => {
-        // 随机决定是图片还是视频（25% 概率是视频）
-        const isVideo = Math.random() < 0.25;
+        let isVideo;
+        if (type === "video") {
+          isVideo = true;
+        } else if (type === "image") {
+          isVideo = false;
+        } else {
+          // mixed 类型，30% 概率视频
+          isVideo = Math.random() < 0.3;
+        }
+
         const randomHeight = Math.floor(Math.random() * 300) + 200; // 200-500px 随机高度
 
         return {
           id: `post-${page}-${index}`,
           type: isVideo ? "video" : "image",
           title: `${isVideo ? "视频" : "图片"} ${page}-${index + 1}`,
-          mediaUrl: isVideo
-            ? // 真实小型视频示例（来自 Pexels/Mixkit）
-              getRandomVideoUrl()
-            : // 随机图片
-              getRandomImgUrl(),
-          height: randomHeight, // 图片/视频高度
+          mediaUrl: isVideo ? getRandomVideoUrl() : getRandomImgUrl(),
+          height: randomHeight,
           describe: `描述 ${page}-${index + 1}`,
           userName: `用户 ${page}-${index + 1}`,
           likeCount: Math.floor(Math.random() * 50),
-          isLiked: Math.random() < 0.5,  // 新增随机布尔字段
+          isLiked: Math.random() < 0.5,
         };
       });
 
-      // 模拟分页：前 5 页有数据，第 6 页开始无更多
-      const hasMore = page < 5;
+      // 模拟分页：最多5页
+      const hasMore = page < 8;
 
       resolve({
         data: {
